@@ -11,11 +11,11 @@ export const Card = styled.div`
   padding: ${theme.spacing(4)};
   border-radius: 4px;
 
-  @media (min-width: 480px) {
+  @media (min-width: ${theme.breakpoints.s}) {
     width: 187px;
   }
 
-  @media (min-width: 992px) {
+  @media (min-width: ${theme.breakpoints.l}) {
     width: 200px;
   }
 `;
