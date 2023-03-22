@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import theme from '../../theme';
 
 export const TournamentListWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   margin: 0 -${theme.spacing(3)};
 `;
 

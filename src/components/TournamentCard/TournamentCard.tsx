@@ -41,16 +41,17 @@ const TournamentCard: React.FC<ITournamentCardProps> = ({ tournament }) => {
 
   return (
     <Card>
-      <H6>{tournament.name}</H6>
-
       <div>
-        <div>Organizer: {tournament.organizer}</div>
-        <div>Organizer: {tournament.game}</div>
+        <H6>{tournament.name}</H6>
         <div>
-          Organizer: {tournament.participants.current}/
-          {tournament.participants.max}
+          <div>Organizer: {tournament.organizer}</div>
+          <div>Organizer: {tournament.game}</div>
+          <div>
+            Organizer: {tournament.participants.current}/
+            {tournament.participants.max}
+          </div>
+          <div>Organizer: {date}</div>
         </div>
-        <div>Organizer: {date}</div>
       </div>
 
       <ButtonsWrapper>
