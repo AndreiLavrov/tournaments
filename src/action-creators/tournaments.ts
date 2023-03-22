@@ -8,11 +8,11 @@ import {
   TournamentActionTypes,
 } from '../types/tournament';
 
-export const fetchTournaments = () => {
+export const fetchTournaments = (query: string) => {
   return async (dispatch: Dispatch<TournamentAction>) => {
     try {
       dispatch({ type: TournamentActionTypes.FETCH_TOURNAMENTS });
-      const response = await axios.get(API_TOURNAMENTS_URL);
+      const response = await axios.get(`${API_TOURNAMENTS_URL}?q=${query}`);
       dispatch({
         type: TournamentActionTypes.FETCH_TOURNAMENTS_SUCCESS,
         payload: response.data,
