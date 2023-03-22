@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import TournamentCard from '../TournamentCard/TournamentCard';
 import Button from '../Button';
-import { TournamentListWrapper } from './TournamentList.styles';
+import TournamentCard from '../TournamentCard/TournamentCard';
+import {
+  MainText,
+  MainTextWrapper,
+  TournamentListWrapper,
+} from './TournamentList.styles';
 
 const TournamentList: React.FC = () => {
   const { tournaments, error, loading } = useTypedSelector(
@@ -20,15 +24,15 @@ const TournamentList: React.FC = () => {
   };
 
   if (loading) {
-    return <h4>Loading tournaments...</h4>;
+    return <MainText>Loading tournaments...</MainText>;
   }
 
   if (error) {
     return (
-      <div>
-        <h4>Something went wrong.</h4>
+      <MainTextWrapper>
+        <MainText>Something went wrong.</MainText>
         <Button onClick={retryListener}>Retry</Button>
-      </div>
+      </MainTextWrapper>
     );
   }
 
@@ -39,7 +43,7 @@ const TournamentList: React.FC = () => {
           <TournamentCard key={tournament.id} tournament={tournament} />
         ))
       ) : (
-        <h4>No tournaments found.</h4>
+        <MainText>No tournaments found.</MainText>
       )}
     </TournamentListWrapper>
   );
